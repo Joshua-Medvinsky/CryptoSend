@@ -1,12 +1,13 @@
 import React from 'react';
 
 export default function Home() {
-  const gradientBackground = {
-    background: 'linear-gradient(45deg, #FFD700, #FFA500, #FFD700, #FFA500)',
+  const darkBackground = {
+    background: 'linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99))', 
+  
   };
 
   return (
-    <div style={gradientBackground} className="min-h-screen text-white">
+    <div style={darkBackground} className="min-h-screen text-white">
       <header className="p-4 flex justify-between items-center">
         <div className="flex items-center">
           <div className="rounded-lg border-2 border-white h-12 w-12 flex items-center justify-center overflow-hidden">
