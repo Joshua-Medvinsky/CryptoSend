@@ -1,11 +1,14 @@
-import React from 'react';
+"use client";
+import React, {useContext} from 'react';
+import { TransactionContext } from '@/context/TransactionContext';
 
 export default function Home() {
   const darkBackground = {
     background: 'linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99))', 
   
   };
-
+  const{connectWallet, currentAccount} = useContext(TransactionContext);
+ 
   return (
     <div style={darkBackground} className="min-h-screen text-white">
       <header className="p-4 flex justify-between items-center">
@@ -30,7 +33,12 @@ export default function Home() {
           <p className="text-gray-600 mb-4">
             Cryptosend allows you to securely send and receive cryptocurrencies. Start your crypto journey with us!
           </p>
-          <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Connect Wallet</button>
+          
+          {!currentAccount &&(
+          <button className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+                  onClick={connectWallet}>
+              Connect Wallet</button>
+          )}
         </section>
       </main>
 
