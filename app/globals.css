@@ -29,3 +29,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Your CSS or stylesheet */
+.silver-glassmorphism {
+  background: linear-gradient(
+    to top,
+    rgb(224, 224, 224),
+    rgb(192, 192, 192),
+    rgb(160, 160, 160)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  /* Add other styles as needed to achieve the silver glassmorphism effect */
+}

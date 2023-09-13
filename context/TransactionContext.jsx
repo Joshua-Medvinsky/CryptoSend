@@ -7,7 +7,7 @@ export const TransactionContext = React.createContext();
    // Check if we're running in a browser environment before accessing window.ethereum
     const ethereum = typeof window !== 'undefined' ? window.ethereum || null : null;
 
-
+    
     //const {ethereum} = window;
 
     const getEthereumContract = () => {
@@ -22,6 +22,12 @@ export const TransactionContext = React.createContext();
 
     export const TransactionProvider = ({children}) =>{
         const [currentAccount,setCurrentAccount] = useState('');
+        const[formData, setFormData] = useState({addressTo:'',amount:'',keyword:'',message:''});
+
+        const handleChange= (e, name) =>{
+            setFormData((prevState)=>({...prevState,[name]:e.target.value}));
+        }
+
         const checkWalletIsConnected = async () => {
             try{
                 if(!ethereum) return alert("Please install metamask");
@@ -58,6 +64,17 @@ export const TransactionContext = React.createContext();
             }
         }
 
+        const sendTransactions = async() =>{
+
+            try{
+
+
+            }catch(error){
+                console.log(error);
+                throw new Error("No Ethereum Object")
+            }
+
+        }
         useEffect(()=>{
 
         checkWalletIsConnected();
