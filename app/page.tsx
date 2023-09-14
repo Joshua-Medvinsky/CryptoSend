@@ -18,10 +18,16 @@ export default function Home() {
   const darkBackground = {
     background: 'linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99))',
   };
-  const { connectWallet, currentAccount, formData, setFormData, handleChange, isLoading } = useContext(TransactionContext);
+  const { connectWallet, currentAccount, formData, handleChange, sendTransaction, isLoading } = useContext(TransactionContext);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e:any) => {
     // Add your submit logic here
+    const {addressTo,amount,keyword,message} = formData;
+    e.preventDefault();
+
+    if(!addressTo||!amount||!keyword||!message) return;
+
+    sendTransaction();
   };
 
   return (

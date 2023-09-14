@@ -13,10 +13,10 @@ export const TransactionContext = React.createContext();
     const getEthereumContract = () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const transactionContract = new ethers.Contract(contractAddress, contractABI,singer);
+        const transactionContract = new ethers.Contract(contractAddress, contractABI,signer);
 
 
-        console.log({provider,signer,transactionContract});
+        return transactionContract;
     }
 
 
@@ -64,10 +64,25 @@ export const TransactionContext = React.createContext();
             }
         }
 
-        const sendTransactions = async() =>{
-
+        const sendTransaction = async() =>{
+       
             try{
+                if(!ethereum) return alert("Please install metamask");
+                const {addressTo,amount,keyword,message} = formData;
+                const transactionContract = getEthereumContract();
+                const parsedAmount = ethers.utils.parseEther(amount);
+                
+                await ethereum.request({
+                    method:  'eth_sendTransaction',
+                    params:[{
+                        from: currentAccount,
+                        to:addressTo,
+                        gas: '0x5208',
+                        value: parsedAmount._hex,
+                    }]
+                })
 
+                const transactionHash = await transactionContract.addToBlockchain(addressTo,parsedAmount,message,keyword);
 
             }catch(error){
                 console.log(error);
@@ -81,7 +96,7 @@ export const TransactionContext = React.createContext();
         },[])
 
         return(
-            <TransactionContext.Provider value={{connectWallet, currentAccount}}>
+            <TransactionContext.Provider value={{connectWallet, currentAccount, formData,setFormData,handleChange, sendTransaction}}>
                 {children}
             </TransactionContext.Provider>
         
