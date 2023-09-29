@@ -23,7 +23,9 @@ export const TransactionContext = React.createContext();
     export const TransactionProvider = ({children}) =>{
         const [currentAccount,setCurrentAccount] = useState('');
         const[formData, setFormData] = useState({addressTo:'',amount:'',keyword:'',message:''});
-
+        const[isLoading, setIsLoading] = useState(false);
+        const[transactionCount,setTransactionCount] =useState(0);
+       // localStorage.getItem('transactionCount')
         const handleChange= (e, name) =>{
             setFormData((prevState)=>({...prevState,[name]:e.target.value}));
         }
@@ -82,8 +84,18 @@ export const TransactionContext = React.createContext();
                     }]
                 })
 
-                const transactionHash = await transactionContract.addToBlockchain(addressTo,parsedAmount,message,keyword);
+                const transactionHash = await transactionContract.addToBlockChain(addressTo,parsedAmount,message,keyword);
 
+                setIsLoading(true);
+                console.log('Loading - ${transactionHash.hash}');
+                await transactionHash.wait()
+
+                setIsLoading(false);
+                console.log('Success - ${transactionHash.hash}');
+
+                const transactionCount = await transactionContract.getTransactionCount();
+
+                setTransactionCount(transactionCount.toNumber());
             }catch(error){
                 console.log(error);
                 throw new Error("No Ethereum Object")
