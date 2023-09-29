@@ -16,10 +16,6 @@ const Input = ({ placeholder, name, type, value, handleChange, disabled }: any) 
 );
 
 export default function Home() {
-  const darkBackground = {
-    background:
-      'linear-gradient(to top, rgb(229, 231, 235), rgb(156, 163, 175), rgb(75, 85, 99))',
-  };
   const {
     connectWallet,
     currentAccount,
@@ -52,13 +48,12 @@ export default function Home() {
   };
 
   return (
-    <div style={darkBackground} className="min-h-screen text-gray-800 font-sans">
-      <header className="p-4 flex justify-between items-center bg-white shadow-md">
+    <div className="min-h-screen text-gray-800 font-sans bg-gradient-to-r from-blue-200 to-cyan-200">
+      <header className="p-4 flex justify-between bg-gradient-to-r from-blue-200 to-cyan-200  items-center shadow-md">
         <div className="flex items-center">
-        <div className="rounded-full h-12 w-12 flex items-center justify-center overflow-hidden m-1 custom-border">
-          <img src="/logo.jpg" alt="Logo" className="h-12 w-12 rounded-full" />
-        </div>
-
+          <div className="rounded-full h-12 w-12 flex items-center justify-center overflow-hidden m-1 custom-border">
+            <img src="/logo.jpg" alt="Logo" className="h-12 w-12 rounded-full" />
+          </div>
           <h1 className="text-4xl font-bold ml-4 text-gray-800">Cryptosend</h1>
         </div>
         <nav className="text-lg">
@@ -86,7 +81,7 @@ export default function Home() {
             </button>
           )}
 
-          <div style={darkBackground} className="p-6 sm:w-96 w-full flex flex-col items-center rounded-lg mt-8">
+          <div className="bg-gradient-to-r from-blue-200 to-cyan-200 p-6 sm:w-96 w-full flex flex-col items-center rounded-lg mt-8">
             <Input
               placeholder="Address To"
               name="addressTo"
@@ -143,7 +138,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="text-center p-4 bg-white shadow-md">
+      <footer className="text-center p-4  shadow-md text-black">
         &copy; 2023 Cryptosend. All rights reserved.
       </footer>
     </div>
