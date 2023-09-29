@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { TransactionContext } from '@/context/TransactionContext';
 import Loader from './loader';
+import Services from './components/services'
 
 const Input = ({ placeholder, name, type, value, handleChange, disabled }: any) => (
   <input
@@ -144,9 +145,15 @@ export default function Home() {
         </section>
       </main>
 
+
+           <Services/>
+
+
       <footer className="text-center p-4  shadow-md text-black">
         &copy; 2023 Cryptosend. All rights reserved.
       </footer>
     </div>
+
+    
   );
 }
