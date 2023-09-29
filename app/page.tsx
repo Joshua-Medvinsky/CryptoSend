@@ -58,9 +58,15 @@ export default function Home() {
         </div>
         <nav className="text-lg">
           <ul className="flex space-x-6">
-            <li className="cursor-pointer hover:underline">Market</li>
-            <li className="cursor-pointer hover:underline">Exchange</li>
-            <li className="cursor-pointer hover:underline">Wallets</li>
+          <li>
+            <a href="/market" className="cursor-pointer hover:underline">Market</a>
+          </li>
+          <li>
+            <a href="/exchange" className="cursor-pointer hover:underline">Exchange</a>
+          </li>
+          <li>
+            <a href="/wallets" className="cursor-pointer hover:underline">Wallets</a>
+          </li>
           </ul>
         </nav>
       </header>
