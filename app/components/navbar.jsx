@@ -15,7 +15,7 @@ const Navbar=()=>(
           <a href="/market" className="cursor-pointer hover:underline">Market</a>
         </li>
         <li>
-          <a href="/wallets" className="cursor-pointer hover:underline">Wallets</a>
+          <a href="/support" className="cursor-pointer hover:underline">Support</a>
         </li>
       </ul>
     </nav>
