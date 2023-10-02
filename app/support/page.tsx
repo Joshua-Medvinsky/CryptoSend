@@ -27,7 +27,7 @@ export default function Support() {
         <section className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center mt-2">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">Support Center</h2>
           <p className="text-gray-600 mb-4">
-            Welcome to our support center. We're here to assist you with any questions or issues you may have.
+            Welcome to our support center. We&apos;re here to assist you with any questions or issues you may have.
           </p>
      
           {/* Use pt- to add padding-top */}
