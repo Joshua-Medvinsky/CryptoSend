@@ -93,9 +93,9 @@ export const TransactionContext = React.createContext();
                 setIsLoading(false);
                 console.log('Success - ${transactionHash.hash}');
 
-                const transactionCount = await transactionContract.getTransactionCount();
+              //  const transactionCount = await transactionContract.getTransactionCount();
 
-                setTransactionCount(transactionCount.toNumber());
+                //setTransactionCount(transactionCount.toNumber());
             }catch(error){
                 console.log(error);
                 throw new Error("No Ethereum Object")
@@ -108,7 +108,7 @@ export const TransactionContext = React.createContext();
         },[])
 
         return(
-            <TransactionContext.Provider value={{connectWallet, currentAccount, formData,setFormData,handleChange, sendTransaction}}>
+            <TransactionContext.Provider value={{connectWallet, currentAccount, formData,setFormData,handleChange,isLoading,sendTransaction}}>
                 {children}
             </TransactionContext.Provider>
         

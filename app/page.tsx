@@ -107,7 +107,11 @@ export default function Home() {
               <div className="h-[1px] w-full bg-gray-400 my-4" />
 
               {isLoading ? (
-                <Loader />
+              <div className="flex justify-center items-center py-3">
+                
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-cyan-700" />
+                
+              </div>
               ) : (
                 <>
                   {showConnectWalletError && (
