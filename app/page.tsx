@@ -57,7 +57,7 @@ export default function Home() {
           <div className="sm:w-1/2 w-full p-8">
             <h2 className="text-3xl font-bold mb-6 text-gray-800">Send Crypto Across the World</h2>
             <p className="text-gray-600 mb-6">
-              Explore the crypto world with ease. Buy cryptocurrencies easily with CryptoSend.
+              Explore the crypto world with ease. Send cryptocurrencies easily with CryptoSend.
             </p>
             {!currentAccount && (
               <button
